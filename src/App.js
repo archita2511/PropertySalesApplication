@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import PropertyCard from './components/PropertyCard';
+
+const propertyData = [
+  { name: 'Property 1', price: '$100,000' },
+  { name: 'Property 2', price: '$150,000' },
+  // Add more property data as needed
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {propertyData.map((property, index) => (
+        <PropertyCard key={index} name={property.name} price={property.price} />
+      ))}
     </div>
   );
 }
